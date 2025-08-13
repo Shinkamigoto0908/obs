@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>途切れなく流れる文字</title>
+<title>連続スクロール文字</title>
 <style>
   @font-face {
     font-family: 'CorporateLogo';
@@ -13,7 +13,7 @@
   html, body {
     margin: 0;
     padding: 0;
-    background: transparent;
+    background: white;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -24,60 +24,63 @@
     top: 30px;
     left: 0;
     width: 100vw;
-    height: 40px;
+    height: 90px;
     overflow: hidden;
     white-space: nowrap;
     pointer-events: none;
+    background: white;
   }
 
   #marquee {
-    display: inline-block;
+    display: flex;
     font-family: 'CorporateLogo', sans-serif;
-    font-size: 25px;
+    font-size: 70px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: black;
+    line-height: 1;
     user-select: none;
     position: relative;
+  }
+
+  .marquee-text {
+    padding-right: 100px;
+    white-space: nowrap;
   }
 </style>
 </head>
 <body>
   <div id="marqueeWrapper">
     <div id="marquee">
-      ★本日熱を出して体がだるいのであまり長くは配信はしません。★　　　★最近チャンネル名を変更しました。【変更前】ずんだもちch.shinkamigoto→変更後】ずんだあああああ★　　　★変更理由：ただ単に検索するのがめんどくさくなってきたからというのと気分転換になんとなく★ 　　★お知らせ：中学３年生になってからなかなか前のような投稿頻度で動画投稿などが続けるのが難しくなりました。これから高校入試の準備に入るため今までもそうでしたがこれからも不定期な投稿が続いてしまいそうです。いつも見ていただいている方々には本当にご迷惑をおかけしてしまいますが、これからもずんだあああああ（旧ずんだもちch.shinkamigotoを応援していただけると幸いです。）★　　　★お知らせ：今後いつになるかわかりませんがこの度GitHubのWebサーバーにて公式的なホームページを作成することになりました。静的サーバーというインターネットから取り込んだものを自動で投稿とかしてくれるものではないので直接更新作業をhtmlコードに打ち込んでしないといけないし、まだ元のUIとかそういうやつも設計段階なので現在Figimaとかでプロトタイプ（デザインを考案するアプリケーションでデザイン案をねってます）を作っているので時間がかかりますがしばらくお待ち下さい。（まあChat GPTの力を借りてこの動く字幕？みたいなものもなんとか作れているから大丈夫だとは思いますが、、、どうなるかはわかりませんのでまた動画などで詳しくお知らせいたします）★
+      <div class="marquee-text">
+        ★本日熱を出して体がだるいのであまり長くは配信はしません。★　　　★最近チャンネル名を変更しました。【変更前】ずんだもちch.shinkamigoto→【変更後】ずんだあああああ★　　　★変更理由：ただ単に検索するのがめんどくさくなってきたからというのと気分転換になんとなく★ 　　★お知らせ：中学３年生になってからなかなか前のような投稿頻度で動画投稿などが続けるのが難しくなりました。これから高校入試の準備に入るため今までもそうでしたがこれからも不定期な投稿が続いてしまいそうです。いつも見ていただいている方々には本当にご迷惑をおかけしてしまいますが、これからもずんだあああああ（旧ずんだもちch.shinkamigotoを応援していただけると幸いです。）★　　　★お知らせ：今後いつになるかわかりませんがこの度GitHubのWebサーバーにて公式的なホームページを作成することになりました。静的サーバーというインターネットから取り込んだものを自動で投稿とかしてくれるものではないので直接更新作業をhtmlコードに打ち込んでしないといけないし、まだ元のUIとかそういうやつも設計段階なので現在Figimaとかでプロトタイプ（デザインを考案するアプリケーションでデザイン案をねってます）を作っているので時間がかかりますがしばらくお待ち下さい。（まあChat GPTの力を借りてこの動く字幕？みたいなものもなんとか作れているから大丈夫だとは思いますが、、、どうなるかはわかりませんのでまた動画などで詳しくお知らせいたします）★
+      </div>
+      <div class="marquee-text">
+        ★本日熱を出して体がだるいのであまり長くは配信はしません。★　　　★最近チャンネル名を変更しました。【変更前】ずんだもちch.shinkamigoto→【変更後】ずんだあああああ★　　　★変更理由：ただ単に検索するのがめんどくさくなってきたからというのと気分転換になんとなく★ 　　★お知らせ：中学３年生になってからなかなか前のような投稿頻度で動画投稿などが続けるのが難しくなりました。これから高校入試の準備に入るため今までもそうでしたがこれからも不定期な投稿が続いてしまいそうです。いつも見ていただいている方々には本当にご迷惑をおかけしてしまいますが、これからもずんだあああああ（旧ずんだもちch.shinkamigotoを応援していただけると幸いです。）★　　　★お知らせ：今後いつになるかわかりませんがこの度GitHubのWebサーバーにて公式的なホームページを作成することになりました。静的サーバーというインターネットから取り込んだものを自動で投稿とかしてくれるものではないので直接更新作業をhtmlコードに打ち込んでしないといけないし、まだ元のUIとかそういうやつも設計段階なので現在Figimaとかでプロトタイプ（デザインを考案するアプリケーションでデザイン案をねってます）を作っているので時間がかかりますがしばらくお待ち下さい。（まあChat GPTの力を借りてこの動く字幕？みたいなものもなんとか作れているから大丈夫だとは思いますが、、、どうなるかはわかりませんのでまた動画などで詳しくお知らせいたします）★
+      </div>
     </div>
   </div>
 
   <script>
     const marquee = document.getElementById('marquee');
-    const wrapper = document.getElementById('marqueeWrapper');
-
-    // スピード（px/秒）
-    const speed = 100 / 60; // 画面幅100vwを60秒で流す例、約1.6667px/sec（調整可能）
-
-    // 初期位置（画面右端）
-    let posX = wrapper.offsetWidth;
-
-    // 文字幅を取得
-    const marqueeWidth = marquee.offsetWidth;
 
     function animate() {
-      posX -= speed;
-      // 文字が完全に左に消えたら元に戻す
-      if (posX < -marqueeWidth) {
-        posX = wrapper.offsetWidth;
+      const firstChild = marquee.children[0];
+      const width = firstChild.offsetWidth;
+
+      let posX = 0;
+      function step() {
+        posX -=2; // 速度調整（px/フレーム）
+        if (posX <= -width) {
+          posX = 0; // 一つ分流れたらリセット
+        }
+        marquee.style.transform = `translateX(${posX}px)`;
+        requestAnimationFrame(step);
       }
-      marquee.style.left = posX + 'px';
-      requestAnimationFrame(animate);
+      step();
     }
 
-    // ページロード後に開始
     window.onload = () => {
-      // 文字幅を改めて取得（フォント読み込み遅れ対策）
-      setTimeout(() => {
-        posX = wrapper.offsetWidth;
-        animate();
-      }, 100);
+      setTimeout(animate, 100); // フォント読み込み対策
     }
   </script>
 </body>
