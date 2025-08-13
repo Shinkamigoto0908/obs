@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>流れる文字（シンプル版）</title>
+<title>途切れなく流れる文字</title>
 <style>
   @font-face {
     font-family: 'CorporateLogo';
     src: url('Corporate-Logo-Bold-ver3.otf') format('opentype');
-    /* ここにフォントのファイルパスを正しく入れてください */
   }
 
   html, body {
@@ -23,12 +22,12 @@
   #marqueeWrapper {
     position: fixed;
     top: 30px;
-    left: 50vw; /* 画面中央より右 */
-    width: 50vw;
-    height: 40px; /* 適度な高さ */
+    left: 0;
+    width: 100vw;
+    height: 40px;
     overflow: hidden;
     white-space: nowrap;
-    pointer-events: none; /* 配信画面でクリックが邪魔にならないように */
+    pointer-events: none;
   }
 
   #marquee {
@@ -36,19 +35,10 @@
     font-family: 'CorporateLogo', sans-serif;
     font-size: 25px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
-    padding-right: 100%; /* 文字の最後の余白 */
-    animation: marqueeAnim 60s linear infinite;
+    color: white;
     user-select: none;
-  }
-
-  @keyframes marqueeAnim {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+    position: relative;
+    left: 100vw; /* 初期位置は画面右端 */
   }
 </style>
 </head>
@@ -58,5 +48,38 @@
       最近熱を出して体だるいのであまり長くは配信はしません。★最近チャンネル名を変更しました。【変更前】ずんだもちch.shinkamigoto→【変更後】ずんだあああああ★変更理由：ただ単に検索するのがめんどくさくなってきたからというのと気分転換になんとなく★
     </div>
   </div>
+
+  <script>
+    const marquee = document.getElementById('marquee');
+    const wrapper = document.getElementById('marqueeWrapper');
+
+    // スピード（px/秒）
+    const speed = 100 / 60; // 画面幅100vwを60秒で流す例、約1.6667px/sec（調整可能）
+
+    // 初期位置（画面右端）
+    let posX = wrapper.offsetWidth;
+
+    // 文字幅を取得
+    const marqueeWidth = marquee.offsetWidth;
+
+    function animate() {
+      posX -= speed;
+      // 文字が完全に左に消えたら元に戻す
+      if (posX < -marqueeWidth) {
+        posX = wrapper.offsetWidth;
+      }
+      marquee.style.left = posX + 'px';
+      requestAnimationFrame(animate);
+    }
+
+    // ページロード後に開始
+    window.onload = () => {
+      // 文字幅を改めて取得（フォント読み込み遅れ対策）
+      setTimeout(() => {
+        posX = wrapper.offsetWidth;
+        animate();
+      }, 100);
+    }
+  </script>
 </body>
 </html>
