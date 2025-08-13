@@ -3,49 +3,58 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>流れるタイトル文字（右側・OTFフォント）</title>
+<title>流れる文字（シンプル版）</title>
 <style>
   @font-face {
     font-family: 'CorporateLogo';
     src: url('Corporate-Logo-Bold-ver3.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+    /* ここにフォントのファイルパスを正しく入れてください */
   }
-  body {
+
+  html, body {
     margin: 0;
+    padding: 0;
     background: transparent;
     overflow: hidden;
-    font-family: 'CorporateLogo', sans-serif;
+    height: 100vh;
+    width: 100vw;
   }
-  .marquee-wrapper {
+
+  #marqueeWrapper {
     position: fixed;
     top: 30px;
-    left: 50vw;
+    left: 50vw; /* 画面中央より右 */
     width: 50vw;
+    height: 40px; /* 適度な高さ */
     overflow: hidden;
     white-space: nowrap;
+    pointer-events: none; /* 配信画面でクリックが邪魔にならないように */
   }
-  .marquee-content {
+
+  #marquee {
     display: inline-block;
-    padding-right: 100%;
-    font-weight: bold;
+    font-family: 'CorporateLogo', sans-serif;
     font-size: 25px;
-    color: #000000;
-    animation: marquee 60s linear infinite;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    padding-right: 100%; /* 文字の最後の余白 */
+    animation: marqueeAnim 60s linear infinite;
+    user-select: none;
   }
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
+
+  @keyframes marqueeAnim {
+    from {
+      transform: translateX(0%);
     }
-    100% {
+    to {
       transform: translateX(-100%);
     }
   }
 </style>
 </head>
 <body>
-  <div class="marquee-wrapper">
-    <div class="marquee-content">
+  <div id="marqueeWrapper">
+    <div id="marquee">
       最近熱を出して体だるいのであまり長くは配信はしません。★最近チャンネル名を変更しました。【変更前】ずんだもちch.shinkamigoto→【変更後】ずんだあああああ★変更理由：ただ単に検索するのがめんどくさくなってきたからというのと気分転換になんとなく★
     </div>
   </div>
