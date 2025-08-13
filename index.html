@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>流れるタイトル文字（右側・OTFフォント）</title>
+<style>
+  @font-face {
+    font-family: 'CorporateLogo';
+    src: url('Corporate-Logo-Bold-ver3.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+    font-family: 'CorporateLogo', sans-serif;
+  }
+  .marquee-wrapper {
+    position: fixed;
+    top: 30px;
+    left: 50vw;
+    width: 50vw;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-content {
+    display: inline-block;
+    padding-right: 100%;
+    font-weight: bold;
+    font-size: 25px;
+    color: #000000;
+    animation: marquee 60s linear infinite;
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      最近熱を出して体だるいのであまり長くは配信はしません。★最近チャンネル名を変更しました。【変更前】ずんだもちch.shinkamigoto→【変更後】ずんだあああああ★変更理由：ただ単に検索するのがめんどくさくなってきたからというのと気分転換になんとなく★
+    </div>
+  </div>
+</body>
+</html>
