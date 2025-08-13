@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>流れるタイトル文字（パラメータ指定版）</title>
+<style>
+  body {
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+    font-family: 'CorporateLogo', sans-serif;
+  }
+  #marquee {
+    position: fixed;
+    top: 20px;
+    white-space: nowrap;
+    font-weight: bold;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: marquee;
+    color: #FF4500;
+    font-size: 48px;
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="marquee">ずんだあああああチャンネルへようこそ！</div>
+
+  <script>
+    // URLパラメータ取得関数
+    function getParam(name, defaultValue) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name) || defaultValue;
+    }
+
+    const marquee = document.getElementById('marquee');
+
+    // パラメータから設定を読み込み
+    const text = getParam('text', 'ずんだあああああチャンネルへようこそ！');
+    const color = getParam('color', '#FF4500');
+    const fontSize = getParam('size', '48');
+    const speed = getParam('speed', '10');
+
+    marquee.textContent = text;
+    marquee.style.color = color;
+    marquee.style.fontSize = fontSize + 'px';
+    marquee.style.animationDuration = speed + 's';
+  </script>
+</body>
+</html>
